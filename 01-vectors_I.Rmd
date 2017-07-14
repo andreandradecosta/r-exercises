@@ -52,3 +52,16 @@ data("AirPassengers")
 AirPassengers[time(AirPassengers) >= 1949 & time(AirPassengers) < 1950]
 ```
 
+07: C
+```{r}
+x <- c(2, 4, 6, 8)
+y <- c(TRUE, TRUE, FALSE, TRUE)
+sum(x[y])
+```
+
+08: C
+```{r}
+x <- c(34, 56, 55, 87, NA, 4, 77, NA, 21, NA, 39)
+sum(is.na(x))
+```
+
