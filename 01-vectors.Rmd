@@ -1,0 +1,54 @@
+---
+title: "O1 - Vectors I"
+output: html_notebook
+---
+[Vector exercises](http://www.r-exercises.com/2015/10/09/vector-exercises/)
+
+
+01: B
+```{r}
+c(4,6,5,7,10,9,4,15) < 7
+```
+
+
+02: D
+```{r}
+c(3, 5, 6, 8) + c(3, 3, 3)
+```
+
+
+
+03: C
+```{r}
+Age <- c(22, 25, 18, 20)
+Name <- c("James", "Mathew", "Olivia", "Stella")
+Gender <- c("M", "M", "F", "F")
+
+DataFrame <- data.frame(Age, Name, Gender)
+subset(DataFrame, Gender=="M")
+```
+
+
+04: B
+```{r}
+z <- 0:9
+digits <- as.character(z)
+as.integer(digits)
+```
+
+
+05: D
+```{r}
+x <- c(1, 2, 3, 4)
+ (x+2)[(!is.na(x)) & x > 0] -> k
+k
+```
+
+
+06: C
+
+```{r}
+data("AirPassengers")
+AirPassengers[time(AirPassengers) >= 1949 & time(AirPassengers) < 1950]
+```
+
