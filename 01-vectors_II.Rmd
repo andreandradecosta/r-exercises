@@ -1,0 +1,92 @@
+---
+title: "O1 - Vectors II"
+output: html_notebook
+---
+
+[Vector exercises II](http://www.r-exercises.com/2016/11/15/vector-exercises-vol-2/)
+
+
+01: 0 60 5 56 20 27 16 15
+```{r}
+x=c(4,6,5,7,10,9,4,15)
+y=c(0,10,1,8,2,3,4,1)
+x*y
+```
+
+
+02: 
+1 3
+2 2
+4 4
+5 1
+6 9
+```{r}
+a=c(1,2,4,5,6)
+b=c(3,2,4,1,9)
+cbind(a, b)
+```
+
+
+03: T, T, F, F, T
+```{r}
+a=c(1,5,4,3,6)
+b=c(3,5,2,1,9)
+a <= b
+```
+
+
+04:
+10,2,4,15
+3,12,4,11
+```{r}
+a=c(10,2,4,15)
+b=c(3,12,4,11)
+rbind(a, b)
+```
+
+
+5: 
+- NULL
+- 12
+```{r}
+x=(1:12)
+dim(x)
+length(x)
+```
+
+
+6:  T
+```{r}
+a=c(12:5)
+is.numeric(a)
+```
+
+
+7: 1 4 7
+```{r}
+x=c(12:4)
+y=c(0,1,2,0,1,2,0,1,2)
+which(!is.finite(x/y))
+```
+
+8: 10 x TRUE
+```{r}
+x=letters[1:10]
+y=letters[15:24]
+x<y
+```
+
+
+9: TRUE
+```{r}
+x=c('blue','red','green','yellow')
+is.character(x)
+```
+
+
+10: TRUE
+```{r}
+ x=c('blue',10,'green',20)
+is.character(x)
+```
+
