@@ -1,0 +1,77 @@
+---
+title: "O2 - Regular Sequences I"
+output: html_notebook
+---
+
+[Sequences exercises I](http://www.r-exercises.com/2015/10/23/regular-sequences/)
+
+
+01: 
+```{r}
+seq(2, 11, by = 3)
+```
+
+
+02:
+```{r}
+seq(9, 45, by = 9)
+```
+
+
+03:
+```{r}
+seq(9, 90, length.out = 10)
+seq(from = 9, by = 9, length.out = 10)
+```
+
+
+04: -10, -5, 0, 5, 10
+```{r}
+seq(from = -10, to = 10, length.out = 5)
+```
+
+
+05:
+a: 1:5 - 1
+b: 1:4
+```{r}
+x<-5
+1:x-1
+1 : (x-1)
+```
+
+
+6: 1 2 3 4
+```{r}
+a<-1:4
+seq(along.with = a)
+```
+
+
+7: D
+```{r}
+seq(from = 1, to = 4, by = 1)
+1:4
+seq(4)
+c(1,2,3,4)
+```
+
+
+8:
+```{r}
+seq(5, 1)
+```
+
+
+9:
+```{r}
+x <- c(1,2,3,4)
+rep(x, 3)
+```
+
+
+10:
+```{r}
+x <- c(1,2,3,4)
+rep(x, each=3)
+```
