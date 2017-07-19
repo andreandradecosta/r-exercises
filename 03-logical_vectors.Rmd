@@ -1,0 +1,101 @@
+---
+title: "O3 - Logical Vectors and Operators"
+output: html_notebook
+---
+
+[Logical Vectors and Operators](http://www.r-exercises.com/2015/11/25/logical-vectors-and-operators/)
+
+Setup:
+```{r}
+data <- mtcars
+data
+```
+
+
+01: 
+```{r}
+data[data$mpg > 15 & data$mpg < 20, ]
+```
+
+
+02:
+```{r}
+data[data$cyl == 6 & data$am != 0,]
+```
+
+
+03:
+```{r}
+data[data$gear == 4 | data$carb == 4,]
+```
+
+
+04:
+```{r}
+data[1:nrow(data) %% 2 != 0,]
+# or
+data[seq(1, nrow(data), by=2),]
+#solution:
+data[c(F,T),]
+```
+
+05:
+```{r}
+data[seq(4, nrow(data), by = 4),]$mpg <- 0
+#solution:
+data$mpg[c(F,F,F,T)] <- 0
+
+data
+```
+
+
+06:
+```{r}
+data[data$vs & data$am,]
+```
+
+
+07: 0
+```{r}
+(TRUE + TRUE) * FALSE
+```
+
+
+08:
+```{r}
+data[data$vs | data$am,]
+```
+
+09:
+| : element wise 'or'
+||: short circuit 'or'
+& : element wise 'and'
+&&: short circuit 'and'
+
+
+10:
+```{r}
+data[!data$am, 'am'] <- 2
+#solution:
+data$am[data$am == 0] <- 2
+data
+```
+
+
+11:
+```{r}
+data[,'vs'] <- data[,'vs'] + 2
+#solution:
+#data$vs <- data$vs + 2*(TRUE)
+data
+```
+
+
+12:
+```{r}
+data <- mtcars
+data[!!(data$vs - data$am),]
+#solution:
+data[xor(data$vs,data$am),]
+```
+
