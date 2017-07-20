@@ -1,0 +1,92 @@
+---
+title: "O4 - Missing Values"
+output: html_notebook
+---
+
+[Missing Values](http://www.r-exercises.com/2015/12/14/missing-values/)
+
+01: 6
+```{r}
+X <- c(22,3,7,NA,NA,67)
+length(X)
+```
+
+
+02: a
+```{r}
+X <- c(NA,3,14,NA,33,17,NA,41)
+X[!is.na(X)]
+```
+
+
+03: b
+```{r}
+X <- c(1,3,12,NA,33,7,NA,21)
+X[is.na(X)] <- 11
+X
+```
+
+
+04: c
+```{r}
+ X <- c(34,33,65,37,89,NA,43,NA,11,NA,23,NA)
+sum(is.na(X))
+```
+
+
+05: 
+```{r}
+W <- c(11,3,5,NA,6) 
+is.na(W)
+```
+
+
+06:
+```{r}
+data("Orange")
+Orange$age[Orange$age == 118] <- NA
+Orange
+```
+
+
+07:
+```{r}
+A <- c (33, 21, 12, NA, 7, 8)
+mean(A, na.rm = TRUE)
+```
+
+
+08:
+```{r}
+c1 <- c(1,2,3,NA)
+c2 <- c(2,4,6,89)
+c3 <- c(45,NA,66,101)
+X <- rbind (c1,c2,c3, deparse.level=1)
+X[rowSums(is.na(X)) > 0,]
+#solution:
+X[!complete.cases(X),]
+```
+
+
+09:
+```{r}
+f <- data.frame(Name = c(NA, "Joseph", "Martin", NA, "Andrea"), 
+                Sales = c(15, 18, 21, 56, 60), 
+                Price = c(34, 52, 21, 44, 20), 
+                stringsAsFactors = FALSE) 
+f
+f[!is.na(f$Name),]
+```
+
+
+10:
+```{r}
+df <- data.frame(Name = c(NA, "Joseph", "Martin", NA, "Andrea"), 
+                 Sales = c(15, 18, 21, NA, 60), 
+                 Price = c(34, 52, 33, 44, NA), 
+                 stringsAsFactors = FALSE) 
+df[!rowSums(is.na(df)),]
+#solution:
+df[complete.cases(df),]
+```
+
