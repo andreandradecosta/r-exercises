@@ -1,0 +1,80 @@
+---
+title: "O5 - Character Vectors"
+output: html_notebook
+---
+
+[Character Vectors](http://www.r-exercises.com/2015/12/18/character-vector-exercises/)
+
+01: b
+```{r}
+x <- "Good Morning! "
+nchar(x)
+```
+
+
+02: c
+```{r}
+x <- c("Nature’s", "Best ")
+nchar(x)
+```
+
+03: b
+```{r}
+x <- c("Nature’s"," At its best ")
+nchar(x)
+```
+
+
+04:
+```{r}
+fname <- "James"
+lname <- "Bond"
+paste(fname, lname)
+```
+
+
+05:
+```{r}
+m <- "Capital of America is Washington"
+substr(m, start = 1, stop = 18)
+```
+
+
+06:
+```{r}
+sub("failed", "failure", "Success is not final, failed is not fatal")
+```
+
+
+07:
+```{r}
+Names <- c("John", "Andrew", "Thomas")
+Designation <- c("Manager", "Project Head", "Marketing Head")
+data.frame(Names, Designation)
+```
+
+
+08:
+```{r}
+x <- character(10)
+x
+#solution:
+vector(mode="character", length = 10)
+```
+
+
+09:
+```{r}
+l <- letters[1:5]
+paste0(rep(l, 5), rep(l, each=5))
+#solution:
+c(outer(l, l, FUN="paste", sep=""))
+```
+
+
+10:
+```{r}
+df <- data.frame(Date = c("12/12/2000 12:11:10"))
+strptime(df$Date, "%m/%d/%Y %H:%M:%S")
+```
+
