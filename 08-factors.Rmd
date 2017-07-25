@@ -1,0 +1,93 @@
+---
+title: "O8 - Fators"
+output: html_notebook
+---
+
+[Factors](http://www.r-exercises.com/2015/12/28/factor-exercises/)
+
+01: a
+```{r}
+x <- c(1, 2, 3, 3, 5, 3, 2, 4, NA)
+factor(x)
+```
+
+
+02: c
+```{r}
+x <- c(11, 22, 47, 47, 11, 47, 11)
+factor(x, levels = c(11, 22, 47), ordered = TRUE)[4]
+```
+
+
+03: c
+```{r}
+z <- c("p", "a" , "g", "t", "b")
+z[3] <- "b"
+z
+```
+
+04:
+```{r}
+z <- factor(c("p", "q", "p", "r", "q"))
+z
+levels(z)[1] <- "w"
+z
+```
+
+
+05:
+```{r}
+s1 <- factor(sample(letters, size = 5, replace = TRUE))
+s2 <- factor(sample(letters, size = 5, replace = TRUE))
+s1
+s2
+factor(c(as.character(s1), as.character(s2)))
+#solution
+factor(c(levels(s1)[s1], levels(s2)[s2]))
+```
+
+
+06:
+```{r}
+data("iris")
+table(cut(iris$Sepal.Length, breaks = 5)) 
+```
+
+
+07:
+```{r}
+table(cut(iris$Sepal.Length, breaks = c(0, 4.9, 10), labels = c(T, F)), iris$Species)
+#solution:
+table(iris$Sepal.Length < 5, factor(iris$Species))
+```
+
+
+08:
+```{r}
+responses <- factor(c("Agree", "Agree", "Strongly Agree", "Disagree", "Agree"))
+responses
+levels(responses) <- c(levels(responses), "Strongly Disagree")
+responses
+#solution:
+factor(responses, levels=c("Strongly Agree", "Agree", "Disagree", "Strongly Disagree"))
+```
+
+
+09:
+```{r}
+x <- data.frame(q = c(2, 4, 6), p = c("a", "b", "c"))
+levels(x$p) <- list(fertiliser1 = "a", fertiliser2 = "b", fertiliser3 = "c")
+x
+#solution:
+xs <- data.frame(q = c(2, 4, 6), p = c("a", "b", "c"))
+xs$p <- factor(xs$p, levels=c("a", "b", "c"), labels=c("fertiliser1", "fertiliser2", "fertiliser3"))
+xs
+```
+
+
+10:
+```{r}
+x <- factor(c("high", "low", "medium", "high", "high", "low", "medium"))
+data.frame(levels = unique(x), value = as.numeric(unique(x)))
+```
+
