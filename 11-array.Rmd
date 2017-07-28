@@ -1,0 +1,77 @@
+---
+title: "11 - Array"
+output: html_notebook
+---
+
+[Array](http://www.r-exercises.com/2015/12/01/array-exercises/)
+
+01: 
+```{r}
+a <- 1:24
+dim(a) <- c(2, 3, 4)
+a
+```
+
+02:
+```{r}
+array(1:24, dim = c(2, 3, 4))
+```
+
+03:
+```{r}
+dimnames(a) <- list(c('a', 'b'), c('c', 'd', 'e'), c('f', 'g', 'h', 'i'))
+a
+```
+
+04:
+```{r}
+array(1:24, dim = c(2, 3, 4), dimnames = list(c('a', 'b'), c('c', 'd', 'e'), c('f', 'g', 'h', 'i')))
+```
+
+05:
+```{r}
+aperm(a)
+```
+
+06:
+```{r}
+temp <- read.csv('11-array.csv')
+arr <- temp$N
+arr
+```
+
+07:
+```{r}
+dim(arr) <- c(3, 2, 4)
+dimnames(arr) <- list(c('a', 'b', 'c'), c('d', 'e'), c('f', 'g', 'h', 'i'))
+```
+
+```{r}
+arr
+```
+
+
+09:
+```{r}
+arr[,,2]
+```
+
+
+10:
+```{r}
+arr[c(3,1),,1]
+```
+
+11:
+```{r}
+arr[2,2,4]
+```
+
+
+12:
+```{r}
+arr[,,'g']
+arr[c('c', 'a'),,'f']
+arr['b', 'e', 'i']
+```
+
