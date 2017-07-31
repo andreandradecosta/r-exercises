@@ -1,0 +1,216 @@
+---
+title: "12 - Bind"
+output: html_notebook
+---
+
+[Bind](http://www.r-exercises.com/2016/02/22/bind-exercises/)
+
+01: 
+a)
+- yes
+ 1 1
+ 2 2
+ 3 3
+ 4 4
+ 5 5
+ - numeric
+ 
+ b)
+ - yes
+ '1' '1'
+ '2' '2'
+ '3' '3'
+ '4' '4'
+ '5' '5'
+ - character
+ 
+ c)
+ - warning
+ 1 1 1
+ 2 2 2
+ 3 3 3
+ 4 4 1
+ 5 1 2
+ - numeric
+```{r}
+a <- 1:5; b <- 1:5
+cbind(a, b)
+mode(cbind(a,b))
+
+a <- 1:5; b <- c('1', '2', '3', '4', '5')
+cbind(a, b)
+mode(cbind(a,b))
+
+
+a <- 1:5 ; b <- 1:4; c <- 1:3
+cbind(a, b, c)
+mode(cbind(a,b))
+```
+
+
+02:
+a)
+1 2 3 4 5
+1 2 3 4 5
+- numeric
+
+b)
+'1' '2' '3' '4' '5'
+'1' '2' '3' '4' '5'
+- character
+
+c) warning
+1 2 3 4 5
+1 2 3 4 1
+1 2 3 1 2
+```{r}
+a <- 1:5; b <- 1:5
+rbind(a, b)
+mode(rbind(a,b))
+
+a <- 1:5; b <- c('1', '2', '3', '4', '5')
+rbind(a, b)
+mode(rbind(a,b))
+
+a <- 1:5 ; b <- 1:4; c <- 1:3
+rbind(a, b, c, deparse.level = 0)
+mode(rbind(a,b))
+```
+
+
+03:
+a)
+1 4 7 10 21 24 27 30 33
+2 5 8 11 22 25 28 31 34
+3 6 9 12 23 26 29 32 35
+- numeric
+
+b)
+- error
+
+c)
+ 1   14   27    A    N
+ 2   15   28    B    O
+ 3   16   29    C    P
+ 4   17   30    D    Q
+ 5   18   31    E    R
+ 6   19   32    F    S
+ 7   20   33    G    T
+ 8   21   34    H    U
+ 9   22   35    I    V
+10   23   36    J    W
+11   24   37    K    X
+12   25   38    L    Y
+13   26   39    M    Z
+- character
+```{r}
+a <- matrix(1:12, ncol=4); b <- matrix(21:35, ncol=5)
+cbind(a,b)
+mode(cbind(a,b))
+
+a <- matrix(1:12, ncol=4); b <- matrix(21:35, ncol=3)
+#cbind(a,b)
+# mode(cbind(a,b))
+
+a <- matrix(1:39, ncol=3); b <- matrix(LETTERS, ncol=2)
+cbind(a, b)
+mode(cbind(a,b))
+```
+
+
+04:
+```{r}
+a <- matrix(1:9, ncol = 3)
+matrix(rep(a, 3), ncol = 9)
+```
+
+
+05:
+a)
+v1 v2 var1 var2
+1  A  6    F
+2  B  7    G
+3  C  8    H
+4  D  9    I
+5  E  10   J
+- numeric, factor, numeric, factor
+
+b)
+error
+```{r}
+a <- data.frame(v1=1:5, v2=LETTERS[1:5]) ; b <- data.frame(var1=6:10, var2=LETTERS[6:10])
+d <- cbind(a, b)
+d
+str(d)
+
+a <- data.frame(v1=1:6, v2=LETTERS[1:6]) ; b <- data.frame(var1=6:10, var2=LETTERS[6:10])
+#d <- cbind(a, b)
+```
+
+
+06:
+a)
+v1 v2
+1  A
+2  B
+3  C
+4  D
+5  E
+6  F
+7  G
+8  H
+9  I
+10 J
+- numeric, factor
+
+b)
+v1 v2
+1  A
+2  B
+3  C
+4  D
+5  E
+6  F
+F  NA
+G  NA
+H  NA
+I  NA
+J  NA
+- character, factor
+
+```{r}
+a <- data.frame(v1=1:5, v2=LETTERS[1:5]) ; b <- data.frame(v1=6:10, v2=LETTERS[6:10])
+d6a <- rbind(a, b)
+d6a
+
+ a <- data.frame(v1=1:6, v2=LETTERS[1:6]) ; b <- data.frame(v2=6:10, v1=LETTERS[6:10])
+ d6b <- rbind(a, b)
+ d6b
+```
+
+
+07:
+```{r}
+v3 <- 1:5
+d7a <- cbind(d6b, v3 = append(v3, rep(NA, 6)))
+d7a
+d7b <- d7a[,c('v1', 'v3', 'v2')]
+d7b
+```
+
+
+08:
+```{r}
+ a <- matrix(1:12, ncol=4); b <- matrix(21:35, ncol=3)
+a <- rbind(a, matrix(NA, ncol = 4, nrow = 2))
+cbind(a,b)
+```
+
+
+09:
+```{r}
+a <- data.frame(v1=1:6, v2=LETTERS[1:6]); b <- data.frame(var1=6:10, var2=LETTERS[6:10])
+b <- rbind(b, c(NA, NA))
+cbind(a, b)
+```
+
