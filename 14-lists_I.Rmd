@@ -1,0 +1,83 @@
+---
+title: "14 - Lists I"
+output: html_notebook
+---
+
+[Lists](http://www.r-exercises.com/2015/12/31/list-exercises/)
+
+01: b
+```{r}
+p <- c(2,7,8); q <- c("A", "B", "C")
+x <- list(p, q)
+x[2]
+```
+
+
+02: b
+```{r}
+w <- c(2, 7, 8)
+v <- c("A", "B", "C")
+x <- list(w, v)
+x[[2]][1] <- 'K'
+x
+```
+
+03: c
+```{r}
+a <- list ("x"=5, "y"=10, "z"=15)
+sum(unlist(a))
+```
+
+
+04:
+```{r}
+Newlist <- list(a=1:10, b="Good morning", c="Hi")
+Newlist$a <- Newlist$a + 1
+Newlist
+```
+
+
+05:
+```{r}
+b <- list(a=1:10, c="Hello", d="AA")
+b[[1]]
+b[[1]][-2]
+```
+
+
+06:
+```{r}
+x <- list(a=5:10, c="Hello", d="AA")
+x$z <- "NewItem"
+x
+```
+
+07:
+```{r}
+y <- list("a", "b", "c")
+names(y) <- c('one', 'two', 'three')
+y
+```
+
+08:
+```{r}
+x <- list(y=1:10, t="Hello", f="TT", r=5:20)
+length(x$r)
+```
+
+
+09:
+```{r}
+string <- "Grand Opening"
+tokens <- unlist(strsplit(string, ' '))
+list(tokens[1], tokens[2])
+```
+
+
+10:
+```{r}
+y <- list("a", "b", "c")
+q <- list("A", "B", "C", "a", "b", "c")
+setdiff(q, y)
+```
+
