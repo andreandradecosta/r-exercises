@@ -1,0 +1,75 @@
+---
+title: "15 - Lists II"
+output: html_notebook
+---
+
+[Lists](http://www.r-exercises.com/2016/12/27/list-exercises-vol-2/)
+
+01:
+```{r}
+Date <- list(year = c(2005:2016), month = c(1:12), day = c(1:31))
+Date
+```
+
+02:
+```{r}
+Date$year <- c(2000:2010)
+Date
+```
+
+03:
+```{r}
+Date$month <- Date$month[-4]
+Date
+```
+
+04:
+```{r}
+x <- c(1, 3, 4, 7, 11, 18, 29)
+X2 <- list('x*2' = x*2, 'x/2' = x/2, 'sqrt(x)' = sqrt(x))
+X2
+```
+
+05:
+```{r}
+X2$`sqrt(x)`[3:5]
+X2[['sqrt(x)']][3:5]
+```
+
+06:
+```{r}
+M <- c(Date, X2)
+M
+```
+
+07:
+```{r}
+N <- M[c('year', 'x*2', 'day')]
+N
+```
+
+
+08:
+```{r}
+length(N[['x*2']])
+N$year[2]
+```
+
+
+09:
+```{r}
+A=letters[1:4]
+B=letters[5:10]
+C=letters[11:15]
+D=c(1:10)
+E=c(20:5)
+z <- list(x = list(A, B, C), y = list(D, E))
+z
+```
+
+10:
+```{r}
+z$y[[2]][[3]]
+z$x[[3]][[5]]
+```
+
